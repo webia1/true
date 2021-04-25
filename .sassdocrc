@@ -1,11 +1,15 @@
-theme: 'herman'
+theme: herman
 dest: docs/
 src: sass/
 
+display:
+  access: public
+
 herman:
   sass:
+    implementation: sass
     includepaths: ['sass']
-    includes: ['true']
+    use: ['true']
   extraDocs:
     - name: 'Changelog'
       path: CHANGELOG.md
@@ -15,14 +19,11 @@ herman:
       path: LICENSE.txt
 
 groups:
-  Public API:
+  Structure:
+    api-settings: 'Optional Configuration'
     api-test: 'Describing Tests'
-    api-assert-values: 'Comparing Values'
-    api-assert-output: 'Comparing Output'
-    api-xreport: 'Reporting Results'
-  Internal Helpers [Private]:
-    private-utils: 'Utilities'
-    private-context: 'Data Management'
-    private-test: 'Tests'
-    private-assert: 'Assertions'
-    private-message: 'Reporting'
+    api-report: 'Reporting Results'
+  Assertions:
+    api-assert-values: 'Testing Return Values'
+    api-assert-output: 'Testing CSS Output'
+    api-errors: 'Catching & Testing Errors'

@@ -1,19 +1,9 @@
-// Susy partials
-// =============
+// config
+@forward 'config/settings';
+@forward 'config/throw';
 
-// Config
-@import 'true/settings';
-@import 'true/utilities';
-@import 'true/messages';
-
-// Database
-@import 'true/stats';
-@import 'true/context';
-@import 'true/results';
-@import 'true/output';
-
-// API
-@import 'true/modules';
-@import 'true/tests';
-@import 'true/assert';
-@import 'true/report';
+// api
+@forward 'module';
+@forward 'test';
+@forward 'assert';
+@forward 'report';

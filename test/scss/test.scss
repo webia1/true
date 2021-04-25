@@ -1,26 +1,34 @@
-// True Tests
-// ==========
+@use '../../sass/config' as init with (
+  $catch-errors: true,
+  $terminal-output: false,
+);
+@use '../../sass/true';
+@use 'sass:meta';
+
+@use 'config';
+@use 'data';
+@use 'assert';
+@use 'module';
+@use 'tests';
+@use 'report';
+
+// Ignore Non-Test Output
+.not-a-test {
+  break: please-no;
+}
+
+// Sass import legacy test
 
 @import '../../sass/true';
 
-// Error Override
-$_true-error-output-override: true;
+@include true.describe('Imported $terminal-output setting') {
+  @include true.it('Is prefixed as $true-terminal-output') {
+    @include true.assert-true(
+      meta.global-variable-exists('true-terminal-output')
+    );
+  }
+}
 
-// Config
-@import 'utilities';
-@import 'messages';
+// report
 
-// Ignore Non-Test Output
-.not-a-test { break: please-no; }
-
-// Database
-@import 'stats';
-@import 'context';
-@import 'results';
-@import 'output';
-
-// API
-@import 'modules';
-@import 'tests';
-@import 'assert';
-@import 'report';
+@include true.report;
